@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function validateForm() {
+            var name = document.forms["contactForm"]["name"].value;
+            var email = document.forms["contactForm"]["email"].value;
+            var mobile = document.forms["contactForm"]["mobile"].value;
+            var address = document.forms["contactForm"]["address"].value;
+
+            if (name == "" || email == "" || mobile == "" || address == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            var mobilePattern = /^\d{10}$/;
+            if (!mobilePattern.test(mobile)) {
+                alert("Please enter a valid 10-digit mobile number");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <!-----MENU SECTION------>
+    <div class="main-panel">
+        <div class="container">
+            <div class="width-33 logo">
+                Portfolio <span class="span-col">Samples</span>
+            </div>
+            <div class="width-66">
+                <nav>
+                    <a href="#">
+                        <span class="span-col">Home</span>
+                    </a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <!------MAIN BANNER------>
+        <div class="container">
+            <div class="width-50">
+                <div class="banner-section">
+                    <span class="span-col">Welcome To My Site</span>
+                    <h1>
+                        Port<span class="span-col">folio</span>
+                    </h1>
+                    <h2>- I'm a Jr. Developer.</h2>
+                    <a href="#">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="width-50 contact">
+                <div class="banner-section"></div>
+                <form name="contactForm" method="post" onsubmit="return validateForm()">
+                    <input type="text" name="name" placeholder="Full Name...">
+                    <input type="text" name="email" placeholder="Email...">
+                    <input type="text" name="mobile" placeholder="Mobile No...">
+                    <textarea name="address" placeholder="Enter Address..."></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
